@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Shopping list</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1 id="headline">Magic Shopping List</h1>
+    <h3 id="addedMessage">Add a card and assign it a deck</h3>
+    <div>
+        <input id="cardInput" type="text" placeholder="Which card">
+        <input id="deckInput" type="text" placeholder="Which deck?">
+        <button id="submitButton">Submit</button>
+    </div>
+    <p id="errorNotification"></p>
+    <ul id="cardShoppingList">
+        <li id="loading">Loading...</li>
+    </ul>
+    <script src="main.js"></script>
+</body>
+</html>
