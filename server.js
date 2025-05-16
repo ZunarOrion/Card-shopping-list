@@ -1,3 +1,7 @@
+/*The commented out lines of the code is a way me and a class mate ironed
+out together to make the checkbox change from true to false and vise versa
+*/
+
 import express from "express";
 import path from "node:path";
 import fs from "node:fs";
@@ -23,7 +27,7 @@ function writeToJsonFile(data) {
 };
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public", "index.html")); //<----------
+    res.sendFile(path.resolve("public", "index.html"));
 });
 app.use(bodyParser.json());
 
@@ -71,6 +75,18 @@ app.get("/shoppingList", (req, res) => {
 
 app.put("/cardManager/bought/:id", (req, res) => {
     try {
+        /*
+        app.put("/name/:id", (req, res) => {
+            const data = readJsonFile().map((data) => {
+                if (data.checked === true && data.id == req.params.id) {
+                    data.checked = false;
+                    return data;
+                };
+                if (data.id == req.params.id) {
+                    data.checked = true;
+                    return data;
+                };
+        */
         const data = readJsonFile().map((item) => {
             if (item.id === req.params.id) {
                 item.bought = !item.bought;
@@ -99,13 +115,13 @@ app.put("/cardManager/type/:id", (req, res) => {
         });
         writeToJsonFile(data);
         res.json(data.filter((d) => d.id === req.params.id));
-    } catch (error) {
-        console.error(JSON.stringify({ error: error.message,
-            fn: "/cardManager/type/:id"}),);//<---------
-        if (error instanceof ValidationError) {
-            res.status(400).send({error: error.message});
-        } else {
-            res.status(500)
+        } catch (error) {
+            console.error(JSON.stringify({ error: error.message,
+                fn: "/cardManager/type/:id"}),);
+            if (error instanceof ValidationError) {
+                res.status(400).send({error: error.message});
+            } else {
+                res.status(500)
                 .send({error: "Someething went wrong. Try again later..."});
         }
     }

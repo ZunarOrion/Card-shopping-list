@@ -1,3 +1,8 @@
+/*The commented out lines of code is for a function to change the typeArr
+to be strings and sortable according to the array index instead,
+unfortunately I could not figure out how to make it complete.*/
+
+
 console.log("Main is working");
 
 let cardName = "";
@@ -101,6 +106,7 @@ const createTypeDropdown = (item) => {
     const dropdown = document.createElement("select");
     dropdown.id = item.id;
     const typeArr = [1, 2, 3];
+    // const typeArr = ["Land", "Creature", "Other"];
     for (type of typeArr) {
         dropdown.options.add(new Option(type, type));
     }
@@ -112,7 +118,7 @@ const createTypeDropdown = (item) => {
 
 const createTextNodeColumn = (item) => {
     const container = document.createElement("div");
-    container.textContent = `${item.cardName} ${item.deck}`;
+    container.textContent = `Card: ${item.cardName} Deck: ${item.deck}`;
     if (item.bought) {
         container.style.textDecoration = "line-through";
     } else {

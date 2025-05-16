@@ -15,17 +15,23 @@ body{
 h1, h3{
     margin: 1rem;
 }
+input{
+    padding: 0.2rem;
+}
 button{
     padding: 0.2rem;
 }
-#error{
+#errorNotification{
     color: red;
+    margin-top: 1rem;
+    font-size: small;
 }
 ul > li{
     margin-top: 1rem;
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    max-width: fit-content;
 }
 ul > li > div{
     align-items: center;
